@@ -7,6 +7,7 @@ import tannus.io.Asserts.*;
 import tannus.io.EventDispatcher;
 import tannus.ds.Memory;
 import tannus.ds.Obj;
+import tannus.ds.Object;
 import tannus.ds.Stack;
 import tannus.ds.EitherType;
 import tannus.html.Win;
@@ -136,6 +137,13 @@ class Component extends EventDispatcher {
 		for (name in list) {
 			bindEvent( name );
 		}
+	}
+
+	/**
+	  * perform some css-styling
+	  */
+	public function css(props : Object):Void {
+		styles.write( props );
 	}
 
 	/**
@@ -296,6 +304,7 @@ class Component extends EventDispatcher {
 
 	private static inline var DKEY:String = 'crayon:component';
 	public static var MOUSE_EVENTS:Array<String> = {['mouseenter', 'mouseleave', 'mousemove', 'click', 'contextmenu'];};
+	public static var KEYBOARD_EVENTS:Array<String> = {['keydown', 'keyup', 'keypress'];};
 }
 
 /**
